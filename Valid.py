@@ -39,8 +39,8 @@ class Application(ctk.CTk):
         self.button5 = ctk.CTkButton(self.frame, image=self.abs_btn, text="Show Prtc  Absent", width=140, height=40, command=self.Absent)
         self.button5.grid(row=1,column=1, padx=10, pady=10)
 
-        self.button5 = ctk.CTkButton(self.frame, image=self.data_btn , text="Show Absent", width=140, height=40, command=self.All_absent)
-        self.button5.grid(row=1,column=2, padx=10, pady=10)
+        self.button6 = ctk.CTkButton(self.frame, image=self.data_btn , text="Show Absent", width=140, height=40, command=self.All_absent)
+        self.button6.grid(row=1,column=2, padx=10, pady=10)
 
     def Start(self):
         try:
@@ -54,15 +54,15 @@ class Application(ctk.CTk):
             if data:
                 app2 = ctk.CTk()
                 app2.title("Present-Students")
-                self.frame_1 = ctk.CTkScrollableFrame(master=app2, width=320, height=400)
-                self.frame_1.pack(padx=10, pady=10, side="left", anchor="nw",fill="both",expand=True)
-                self.label_0 = ctk.CTkLabel(self.frame_1, text="Rollno\t||  Name\t         ||  Date", font=ctk.CTkFont(size=16, weight="bold"))
-                self.label_0.pack(side="top", anchor="nw")
-                self.label_2 = ctk.CTkLabel(self.frame_1, text="================================", font=ctk.CTkFont(size=14, weight="bold"))
-                self.label_2.pack(side="top", anchor="nw")
+                frame_1 = ctk.CTkScrollableFrame(master=app2, width=320, height=400)
+                frame_1.pack(padx=10, pady=10, side="left", anchor="nw",fill="both",expand=True)
+                label_0 = ctk.CTkLabel(frame_1, text="Rollno\t||  Name\t         ||  Date", font=ctk.CTkFont(size=16, weight="bold"))
+                label_0.pack(side="top", anchor="nw")
+                label_2 = ctk.CTkLabel(frame_1, text="================================", font=ctk.CTkFont(size=14, weight="bold"))
+                label_2.pack(side="top", anchor="nw")
                 for row in data:
-                    self.label = ctk.CTkLabel(self.frame_1, text=f"{str(row[0]).ljust(20)}{str(row[1]).ljust(15)}\t{row[2]}", font=ctk.CTkFont(size=14, weight="bold"))
-                    self.label.pack(anchor="nw")
+                    label = ctk.CTkLabel(frame_1, text=f"{str(row[0]).ljust(20)}{str(row[1]).ljust(15)}\t{row[2]}", font=ctk.CTkFont(size=14, weight="bold"))
+                    label.pack(anchor="nw")
                 app2.mainloop()
         except Exception as e:
             messagebox.showerror("Error", f"Failed to show data: {e}")
@@ -72,16 +72,16 @@ class Application(ctk.CTk):
             data = main_logic.show_all_Absents()
             if data:
                 app9 = ctk.CTk()
-                app9.title("Present-Students")
-                self.frame_4 =ctk.CTkScrollableFrame(master=app9, width=320, height=400)
-                self.frame_4.pack(padx=10, pady=10, side="left", anchor="nw",fill="both",expand=True)
-                self.label_0 = ctk.CTkLabel(self.frame_4, text="Rollno\t||  Name\t         ||  Date", font=ctk.CTkFont(size=16, weight="bold"))
-                self.label_0.pack(side="top", anchor="nw")
-                self.label_2 = ctk.CTkLabel(self.frame_4, text="================================", font=ctk.CTkFont(size=14, weight="bold"))
-                self.label_2.pack(side="top", anchor="nw")
+                app9.title("Absent-Students")
+                frame_4 = ctk.CTkScrollableFrame(master=app9, width=320, height=400)
+                frame_4.pack(padx=10, pady=10, side="left", anchor="nw",fill="both",expand=True)
+                label_0 = ctk.CTkLabel(frame_4, text="Rollno\t||  Name\t         ||  Date", font=ctk.CTkFont(size=16, weight="bold"))
+                label_0.pack(side="top", anchor="nw")
+                label_2 = ctk.CTkLabel(frame_4, text="================================", font=ctk.CTkFont(size=14, weight="bold"))
+                label_2.pack(side="top", anchor="nw")
                 for row in data:
-                    self.label = ctk.CTkLabel(self.frame_4, text=f"{str(row[0]).ljust(20)}{str(row[1]).ljust(15)}\t{row[2]}", font=ctk.CTkFont(size=14, weight="bold"))
-                    self.label.pack(anchor="nw")
+                    label = ctk.CTkLabel(frame_4, text=f"{str(row[0]).ljust(20)}{str(row[1]).ljust(15)}\t{row[2]}", font=ctk.CTkFont(size=14, weight="bold"))
+                    label.pack(anchor="nw")
                 app9.mainloop()
         except Exception as e:
             messagebox.showerror("Error", f"Failed to show data: {e}")
@@ -92,15 +92,15 @@ class Application(ctk.CTk):
             if data:
                 app3 = ctk.CTk()
                 app3.title("Particular-Present-Student")
-                self.frame_2 = ctk.CTkScrollableFrame(master=app3, width=320, height=400)
-                self.frame_2.pack(padx=10, pady=10, side="left", anchor="nw",fill="both",expand=True)
-                self.label_3 = ctk.CTkLabel(self.frame_2, text="Rollno\t ||  Name\t         ||  Date", font=ctk.CTkFont(size=14, weight="bold"))
-                self.label_3.pack(side="top", anchor="nw")
-                self.label_4 = ctk.CTkLabel(self.frame_2, text="===============================", font=ctk.CTkFont(size=14, weight="bold"))
-                self.label_4.pack(side="top", anchor="nw")
+                frame_2 = ctk.CTkScrollableFrame(master=app3, width=320, height=400)
+                frame_2.pack(padx=10, pady=10, side="left", anchor="nw",fill="both",expand=True)
+                label_3 = ctk.CTkLabel(frame_2, text="Rollno\t ||  Name\t         ||  Date", font=ctk.CTkFont(size=14, weight="bold"))
+                label_3.pack(side="top", anchor="nw")
+                label_4 = ctk.CTkLabel(frame_2, text="===============================", font=ctk.CTkFont(size=14, weight="bold"))
+                label_4.pack(side="top", anchor="nw")
                 for row in data:
-                    self.label = ctk.CTkLabel(self.frame_2, text=f"{str(row[0]).ljust(20)}{str(row[1]).ljust(15)}\t{row[2]}", font=ctk.CTkFont(size=12, weight="bold"))
-                    self.label.pack(anchor="nw")
+                    label = ctk.CTkLabel(frame_2, text=f"{str(row[0]).ljust(20)}{str(row[1]).ljust(15)}\t{row[2]}", font=ctk.CTkFont(size=12, weight="bold"))
+                    label.pack(anchor="nw")
                 app3.mainloop()
         except Exception as e:
             messagebox.showerror("Error", f"Failed to show data: {e}")
@@ -112,15 +112,15 @@ class Application(ctk.CTk):
             if data:
                 app5 = ctk.CTk()
                 app5.title("Particular-Absent-Student")
-                self.frame = ctk.CTkScrollableFrame(master=app3, width=320, height=400)
-                self.frame.pack(padx=10, pady=10, side="left", anchor="nw",fill="both",expand=True)
-                self.label_1 = ctk.CTkLabel(self.frame, text="Rollno\t ||  Name\t         ||  Date", font=ctk.CTkFont(size=14, weight="bold"))
-                self.label_1.pack(side="top", anchor="nw")
-                self.label_2 = ctk.CTkLabel(self.frame, text="===============================", font=ctk.CTkFont(size=14, weight="bold"))
-                self.label_2.pack(side="top", anchor="nw")
+                frame_3 = ctk.CTkScrollableFrame(master=app5, width=320, height=400)
+                frame_3.pack(padx=10, pady=10, side="left", anchor="nw",fill="both",expand=True)
+                label_1 = ctk.CTkLabel(frame_3, text="Rollno\t ||  Name\t         ||  Date", font=ctk.CTkFont(size=14, weight="bold"))
+                label_1.pack(side="top", anchor="nw")
+                label_2 = ctk.CTkLabel(frame_3, text="===============================", font=ctk.CTkFont(size=14, weight="bold"))
+                label_2.pack(side="top", anchor="nw")
                 for row in data:
-                    self.label = ctk.CTkLabel(self.frame, text=f"{str(row[0]).ljust(20)}{str(row[1]).ljust(15)}\t{row[2]}", font=ctk.CTkFont(size=12, weight="bold"))
-                    self.label.pack(anchor="nw")
+                    label = ctk.CTkLabel(frame_3, text=f"{str(row[0]).ljust(20)}{str(row[1]).ljust(15)}\t{row[2]}", font=ctk.CTkFont(size=12, weight="bold"))
+                    label.pack(anchor="nw")
                 app5.mainloop()
         except Exception as e:
             messagebox.showerror("Error", f"Failed to show data: {e}")
@@ -128,16 +128,16 @@ class Application(ctk.CTk):
     def add(self):
         app4 = ctk.CTk()
         app4.title("Add Student")
-        self.label_5 = ctk.CTkLabel(app4, text="Name:", font=ctk.CTkFont(size=14, weight="bold"))
-        self.label_5.grid(row=0, column=0, padx=10, pady=10)
+        label_5 = ctk.CTkLabel(app4, text="Name:", font=ctk.CTkFont(size=14, weight="bold"))
+        label_5.grid(row=0, column=0, padx=10, pady=10)
         self.name = ctk.CTkEntry(app4)
         self.name.grid(row=0, column=1, padx=10, pady=10)
-        self.label_6 = ctk.CTkLabel(app4, text="Rollno:", font=ctk.CTkFont(size=14, weight="bold"))
-        self.label_6.grid(row=1, column=0, padx=10, pady=10)
+        label_6 = ctk.CTkLabel(app4, text="Rollno:", font=ctk.CTkFont(size=14, weight="bold"))
+        label_6.grid(row=1, column=0, padx=10, pady=10)
         self.roll = ctk.CTkEntry(app4)
         self.roll.grid(row=1, column=1, padx=10, pady=10)
-        self.bt = ctk.CTkButton(app4, text="Add", width=80, height=30, command=self.get)
-        self.bt.grid(row=2, column=1, padx=10, pady=10)
+        bt = ctk.CTkButton(app4, text="Add", width=80, height=30, command=self.get)
+        bt.grid(row=2, column=1, padx=10, pady=10)
         app4.mainloop()
 
     def get(self):
@@ -147,6 +147,7 @@ class Application(ctk.CTk):
             main_logic.add_stu(name, rollno)
         else:
             messagebox.showinfo('INFO', "You must write the Name and Rollno to add the student")
+
 
 def main():
     app = Application('Listening')
